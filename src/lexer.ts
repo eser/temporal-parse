@@ -1,6 +1,5 @@
 import * as asserts from "https://deno.land/std@0.154.0/testing/asserts.ts";
 import { locales, type SupportedLocales } from "./locales.ts";
-import { dateSamples } from "./sample-dates.ts";
 
 const delimiters = [
   // ", ",
@@ -10,17 +9,17 @@ const delimiters = [
   " ",
 ];
 
-interface CheckDatePartResult {
+interface DatePartLexerResult {
   isValid: boolean;
   type?: "year" | "month" | "day" | "dayOrMonth" | "quarter";
   value: string | number;
 }
 
-const checkDatePart = function checkDatePart(
+const tokenizeDatePart = function tokenizeDatePart(
   datePart: string,
   _index: number,
   targetLocale?: SupportedLocales,
-): CheckDatePartResult {
+): DatePartLexerResult {
   const dateNumberRegExp = /^(?:[0-9]{1,4}|Q[1-4]{1})$/;
   const regExpResult = dateNumberRegExp.test(datePart);
 
@@ -101,17 +100,17 @@ const checkDatePart = function checkDatePart(
   return { isValid: false, value: datePart };
 };
 
-interface CheckIfDateResult {
+interface DateLexerResult {
   isValid: boolean;
   date: string;
   dateValidated: string;
-  parts: CheckDatePartResult[];
+  tokens: DatePartLexerResult[];
 }
 
-const checkIfDate = function checkIfDate(
+const tokenizeDate = function tokenizeDate(
   date: string,
   targetLocale?: SupportedLocales,
-): CheckIfDateResult {
+): DateLexerResult {
   const availableDelimiters = delimiters.filter((delimiter) =>
     date.includes(delimiter)
   );
@@ -131,25 +130,16 @@ const checkIfDate = function checkIfDate(
     remaining = [date_];
   }
 
-  const datePartChecks = remaining.map((datePart, index) =>
-    checkDatePart(datePart, index, targetLocale)
+  const datePartTokens = remaining.map((datePart, index) =>
+    tokenizeDatePart(datePart, index, targetLocale)
   );
 
   return {
-    isValid: datePartChecks.find((x) => !x.isValid) === undefined,
+    isValid: datePartTokens.find((x) => !x.isValid) === undefined,
     date: date,
     dateValidated: date_,
-    parts: datePartChecks,
+    tokens: datePartTokens,
   };
 };
 
-if (import.meta.main) {
-  dateSamples.forEach((date) => {
-    const result = checkIfDate(date);
-
-    // if (!result.isValid) {
-    console.log(result);
-  });
-}
-
-export { checkIfDate };
+export { tokenizeDate, type DateLexerResult };
