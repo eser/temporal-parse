@@ -4,6 +4,9 @@ import { tokenizeDate } from "./lexer.ts";
 
 Deno.test(function addTest() {
   dateSamples.forEach((date) => {
-    asserts.assertObjectMatch(tokenizeDate(date), { isValid: true });
+    const tokenized = tokenizeDate(date);
+
+    asserts.assertEquals(tokenized.isValid, true, `Date "${date}" is not valid`);
+    // asserts.assertObjectMatch(tokenizeDate(date), { isValid: true });
   });
 });

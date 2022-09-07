@@ -11,8 +11,9 @@ const delimiters = [
 
 interface DatePartLexerResult {
   isValid: boolean;
-  type?: "year" | "month" | "day" | "dayOrMonth" | "quarter";
+  type?: "year" | "month" | "day" | "dayName" | "dayOrMonth" | "quarter";
   value: string | number;
+  rawValue: string;
 }
 
 const tokenizeDatePart = function tokenizeDatePart(
@@ -28,7 +29,8 @@ const tokenizeDatePart = function tokenizeDatePart(
       return {
         isValid: true,
         type: "quarter",
-        value: datePart,
+        value: Number(datePart.substring(1)),
+        rawValue: datePart,
       };
     }
 
@@ -38,7 +40,8 @@ const tokenizeDatePart = function tokenizeDatePart(
       return {
         isValid: true,
         type: "year",
-        value: datePart,
+        value: Number(datePart),
+        rawValue: datePart,
       };
     }
 
@@ -46,14 +49,16 @@ const tokenizeDatePart = function tokenizeDatePart(
       return {
         isValid: true,
         type: "day",
-        value: datePart,
+        value: Number(datePart),
+        rawValue: datePart,
       };
     }
 
     return {
       isValid: true,
       type: "dayOrMonth",
-      value: datePart,
+      value: Number(datePart),
+      rawValue: datePart,
     };
   }
 
@@ -62,46 +67,69 @@ const tokenizeDatePart = function tokenizeDatePart(
       continue;
     }
 
-    if (
-      locale.monthNamesLong.find((x) =>
-        x.toLocaleLowerCase(targetLocale) ===
-          datePart.toLocaleLowerCase(targetLocale)
-      ) ||
-      locale.monthNamesShort.find((x) =>
-        x.toLocaleLowerCase(targetLocale) ===
-          datePart.toLocaleLowerCase(targetLocale)
-      )
-    ) {
+    const findIndexLong = locale.monthNamesLong.findIndex((x) =>
+      x.toLocaleLowerCase(targetLocale) ===
+        datePart.toLocaleLowerCase(targetLocale)
+    );
+
+    if (findIndexLong !== -1) {
       return {
         isValid: true,
         type: "month",
-        value: datePart,
+        value: findIndexLong + 1,
+        rawValue: datePart,
       };
     }
 
-    if (
-      locale.dayNamesLong.find((x) =>
-        x.toLocaleLowerCase(targetLocale) ===
-          datePart.toLocaleLowerCase(targetLocale)
-      ) ||
-      locale.dayNamesShort.find((x) =>
-        x.toLocaleLowerCase(targetLocale) ===
-          datePart.toLocaleLowerCase(targetLocale)
-      )
-    ) {
+    const findIndexShort = locale.monthNamesShort.findIndex((x) =>
+      x.toLocaleLowerCase(targetLocale) ===
+        datePart.toLocaleLowerCase(targetLocale)
+    );
+
+    if (findIndexShort !== -1) {
       return {
         isValid: true,
-        type: "day",
-        value: datePart,
+        type: "month",
+        value: findIndexShort + 1,
+        rawValue: datePart,
+      };
+    }
+
+    const findIndexLongForDay = locale.dayNamesLong.findIndex((x) =>
+      x.toLocaleLowerCase(targetLocale) ===
+        datePart.toLocaleLowerCase(targetLocale)
+    );
+
+    if (findIndexLongForDay !== -1) {
+      return {
+        isValid: true,
+        type: "dayName",
+        value: findIndexLongForDay + 1,
+        rawValue: datePart,
+      };
+    }
+
+    const findIndexShortForDay = locale.dayNamesShort.findIndex((x) =>
+      x.toLocaleLowerCase(targetLocale) ===
+        datePart.toLocaleLowerCase(targetLocale)
+    );
+
+    if (findIndexShortForDay !== -1) {
+      return {
+        isValid: true,
+        type: "dayName",
+        value: findIndexShortForDay + 1,
+        rawValue: datePart,
       };
     }
   }
 
-  return { isValid: false, value: datePart };
+  return { isValid: false, value: "", rawValue: datePart };
 };
 
 interface DateLexerResult {
   isValid: boolean;
+  hasQuarter: boolean;
   date: string;
   dateValidated: string;
   tokens: DatePartLexerResult[];
@@ -136,10 +164,12 @@ const tokenizeDate = function tokenizeDate(
 
   return {
     isValid: datePartTokens.find((x) => !x.isValid) === undefined,
+    hasQuarter:
+      datePartTokens.findIndex((x) => x.isValid && x.type === "quarter") > -1,
     date: date,
     dateValidated: date_,
     tokens: datePartTokens,
   };
 };
 
-export { tokenizeDate, type DateLexerResult };
+export { type DateLexerResult, tokenizeDate };

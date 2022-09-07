@@ -1,3 +1,5 @@
+const isDayPlacedFirst = true;
+
 const monthNamesLong = [
   "Gennaio",
   "Febbraio",
@@ -40,4 +42,4 @@ const dayNamesLong = [
 
 const dayNamesShort = ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"];
 
-export { dayNamesLong, dayNamesShort, monthNamesLong, monthNamesShort };
+export { isDayPlacedFirst, dayNamesLong, dayNamesShort, monthNamesLong, monthNamesShort };

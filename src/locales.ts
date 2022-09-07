@@ -16,6 +16,7 @@ type SupportedLocales =
   | "tr-TR";
 
 interface Locale {
+  isDayPlacedFirst: boolean;
   monthNamesLong: string[];
   monthNamesShort: string[];
   dayNamesLong: string[];
