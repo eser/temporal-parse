@@ -1,7 +1,7 @@
 import * as asserts from "https://deno.land/std@0.154.0/testing/asserts.ts";
 import { dateSamples, dateSamplesUS } from "./sample-dates.ts";
 import { DateTokenType, tokenizeDate } from "./date-tokenizer.ts";
-import { parseDate, toDate } from "./parser.ts";
+import { parseDate, toDate } from "./mod.ts";
 
 Deno.test(function tokenizeDateTest() {
   dateSamples.forEach((date) => {

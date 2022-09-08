@@ -1,5 +1,4 @@
 import { type Locale, locales, type SupportedLocales } from "./locales.ts";
-import { dateSamples, dateSamplesUS } from "./sample-dates.ts";
 import {
   type DateToken,
   DateTokenType,
@@ -208,27 +207,5 @@ const toDate = function toDate(input: DateFormat): Date {
 
   return new Date(year, month, day);
 };
-
-if (typeof Deno !== "undefined" && import.meta.main) {
-  let i = 0;
-  dateSamplesUS.forEach((date) => {
-    if (++i > 2) {
-      return;
-    }
-
-    const result = parseDate(date, "en-US");
-
-    console.log(
-      i,
-      ": ",
-      date,
-      " -> ",
-      result !== undefined ? toDate(result).toLocaleDateString("tr-TR") : "",
-      " -> ",
-      result,
-    );
-    console.log("");
-  });
-}
 
 export { parseDate, toDate };

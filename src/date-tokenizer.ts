@@ -23,17 +23,17 @@ const isDelimiter = function isDelimiter(code: number): boolean {
   return (code === 44 || code === 45 || code === 46 || code === 47);
 };
 
-const isAlphaCode = function isAlphaCode(code: number): boolean {
-  if (
-    // (code > 47 && code < 58) || // numeric (0-9)
-    (code > 64 && code < 91) || // upper alpha (A-Z)
-    (code > 96 && code < 123) // lower alpha (a-z)
-  ) {
-    return true;
-  }
+// const isAlphaCode = function isAlphaCode(code: number): boolean {
+//   if (
+//     // (code > 47 && code < 58) || // numeric (0-9)
+//     (code > 64 && code < 91) || // upper alpha (A-Z)
+//     (code > 96 && code < 123) // lower alpha (a-z)
+//   ) {
+//     return true;
+//   }
 
-  return false;
-};
+//   return false;
+// };
 
 const isNumericCode = function isNumeric(code: number): boolean {
   return (code > 47 && code < 58);
@@ -127,11 +127,5 @@ const tokenizeDate = function tokenizeDate(input: string): DateToken[] {
 
   return tokens;
 };
-
-if (typeof Deno !== "undefined" && import.meta.main) {
-  console.log(tokenizeDate("2020-01-01"));
-  console.log(tokenizeDate("Q2"));
-  console.log(tokenizeDate("Q2  ,  2020"));
-}
 
 export { type DateToken, DateTokenType, tokenizeDate };

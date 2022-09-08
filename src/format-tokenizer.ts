@@ -492,11 +492,6 @@ const formatTokenizerToRegExp = function formatTokenizerToRegExp(
   return regExp;
 };
 
-if (typeof Deno !== "undefined" && import.meta.main) {
-  console.log(tokenizeFormat("yyyy-MM-dd"));
-  console.log(tokenizeFormat("dd.MM.yyyy"));
-}
-
 export {
   type FormatSymbol,
   type FormatToken,
