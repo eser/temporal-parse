@@ -11,10 +11,10 @@ await build({
     // see JS docs for overview and more options
     deno: false,
   },
-  typeCheck: false,
+  typeCheck: true,
   test: false,
   declaration: true,
-  scriptModule: false,
+  scriptModule: "cjs",
 });
 
 // post build steps

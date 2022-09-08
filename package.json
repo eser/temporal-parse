@@ -5,7 +5,7 @@
     "date",
     "parser"
   ],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/eserozvataf/vanilla-date-parser#readme",
   "author": "Eser Ozvataf <eser@ozvataf.com>",
   "contributors": [
@@ -22,24 +22,5 @@
   "bugs": {
     "url": "https://github.com/eserozvataf/vanilla-date-parser/issues"
   },
-  "license": "Apache-2.0",
-  "type": "commonjs",
-  "main": "./index.bundle.js",
-  "module": "./mod.bundle.js",
-  "exports": {
-    ".": {
-      "require": "./index.bundle.js",
-      "import": "./mod.bundle.js",
-      "types": "./types/mod.d.ts"
-    }
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^22.0.2",
-    "@rollup/plugin-node-resolve": "^14.0.0",
-    "esbuild": "^0.15.7",
-    "rollup": "^2.79.0",
-    "rollup-plugin-esbuild": "^4.10.1",
-    "rollup-plugin-multi-input": "^1.3.1",
-    "rollup-plugin-sourcemaps": "^0.6.3"
-  }
+  "license": "Apache-2.0"
 }

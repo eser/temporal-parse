@@ -46,9 +46,8 @@
     }
   },
   "tasks": {
-    "build": "deno task build:deno && deno task build:rollup",
+    "build": "deno task build:deno",
     "build:deno": "deno run -A packager.ts",
-    "build:rollup": "./node_modules/.bin/rollup -c",
     "pub": "deno task build && npm publish dist/",
     "cleanup": "rm -rf ./dist/ yarn.lock package-lock.json"
   }
