@@ -57,47 +57,55 @@ const dateFormats = [
   "EE, d MMMM yyyy",
 ];
 
-const monthNamesLong = [
-  "Gennaio",
-  "Febbraio",
-  "Marzo",
-  "Aprile",
-  "Maggio",
-  "Giugno",
-  "Luglio",
-  "Agosto",
-  "Settembre",
-  "Ottobre",
-  "Novembre",
-  "Dicembre",
-];
+const monthNamesLong = {
+  "Gennaio": 1,
+  "Febbraio": 2,
+  "Marzo": 3,
+  "Aprile": 4,
+  "Maggio": 5,
+  "Giugno": 6,
+  "Luglio": 7,
+  "Agosto": 8,
+  "Settembre": 9,
+  "Ottobre": 10,
+  "Novembre": 11,
+  "Dicembre": 12,
+};
 
-const monthNamesShort = [
-  "Gen",
-  "Feb",
-  "Mar",
-  "Apr",
-  "Mag",
-  "Giu",
-  "Lug",
-  "Ago",
-  "Set",
-  "Ott",
-  "Nov",
-  "Dic",
-];
+const monthNamesShort = {
+  "Gen": 1,
+  "Feb": 2,
+  "Mar": 3,
+  "Apr": 4,
+  "Mag": 5,
+  "Giu": 6,
+  "Lug": 7,
+  "Ago": 8,
+  "Set": 9,
+  "Ott": 10,
+  "Nov": 11,
+  "Dic": 12,
+};
 
-const dayNamesLong = [
-  "Domenica",
-  "Lunedì",
-  "Martedì",
-  "Mercoledì",
-  "Giovedì",
-  "Venerdì",
-  "Sabato",
-];
+const dayNamesLong = {
+  "Domenica": 0,
+  "Lunedì": 1,
+  "Martedì": 2,
+  "Mercoledì": 3,
+  "Giovedì": 4,
+  "Venerdì": 5,
+  "Sabato": 6,
+};
 
-const dayNamesShort = ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"];
+const dayNamesShort = {
+  "Dom": 0,
+  "Lun": 1,
+  "Mar": 2,
+  "Mer": 3,
+  "Gio": 4,
+  "Ven": 5,
+  "Sab": 6,
+};
 
 export {
   dateFormats,

@@ -57,47 +57,55 @@ const dateFormats = [
   "EE, d MMMM yyyy",
 ];
 
-const monthNamesLong = [
-  "Januar",
-  "Februar",
-  "März",
-  "April",
-  "Mai",
-  "Juni",
-  "Juli",
-  "August",
-  "September",
-  "Oktober",
-  "November",
-  "Dezember",
-];
+const monthNamesLong = {
+  "Januar": 1,
+  "Februar": 2,
+  "März": 3,
+  "April": 4,
+  "Mai": 5,
+  "Juni": 6,
+  "Juli": 7,
+  "August": 8,
+  "September": 9,
+  "Oktober": 10,
+  "November": 11,
+  "Dezember": 12,
+};
 
-const monthNamesShort = [
-  "Jan",
-  "Feb",
-  "Mär",
-  "Apr",
-  "Mai",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Okt",
-  "Nov",
-  "Dez",
-];
+const monthNamesShort = {
+  "Jan": 1,
+  "Feb": 2,
+  "Mär": 3,
+  "Apr": 4,
+  "Mai": 5,
+  "Jun": 6,
+  "Jul": 7,
+  "Aug": 8,
+  "Sep": 9,
+  "Okt": 10,
+  "Nov": 11,
+  "Dez": 12,
+};
 
-const dayNamesLong = [
-  "Sonntag",
-  "Montag",
-  "Dienstag",
-  "Mittwoch",
-  "Donnerstag",
-  "Freitag",
-  "Samstag",
-];
+const dayNamesLong = {
+  "Sonntag": 0,
+  "Montag": 1,
+  "Dienstag": 2,
+  "Mittwoch": 3,
+  "Donnerstag": 4,
+  "Freitag": 5,
+  "Samstag": 6,
+};
 
-const dayNamesShort = ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"];
+const dayNamesShort = {
+  "So": 0,
+  "Mo": 1,
+  "Di": 2,
+  "Mi": 3,
+  "Do": 4,
+  "Fr": 5,
+  "Sa": 6,
+};
 
 export {
   dateFormats,

@@ -18,10 +18,10 @@ type SupportedLocales =
 interface Locale {
   isDayPlacedFirst: boolean;
   dateFormats: string[];
-  monthNamesLong: string[];
-  monthNamesShort: string[];
-  dayNamesLong: string[];
-  dayNamesShort: string[];
+  monthNamesLong: Record<string, number>;
+  monthNamesShort: Record<string, number>;
+  dayNamesLong: Record<string, number>;
+  dayNamesShort: Record<string, number>;
 }
 
 const locales: Record<SupportedLocales, Locale> = {
@@ -34,4 +34,32 @@ const locales: Record<SupportedLocales, Locale> = {
   "tr-TR": trTR,
 };
 
-export { type Locale, locales, type SupportedLocales };
+const combineLocales = function combineLocales(...locales: Locale[]): Locale {
+  return {
+    isDayPlacedFirst: locales.at(0)?.isDayPlacedFirst ?? true,
+    dateFormats: [...new Set(locales.flatMap((x) => x.dateFormats))],
+    monthNamesLong: Object.assign({}, ...locales.map((x) => x.monthNamesLong)),
+    monthNamesShort: Object.assign(
+      {},
+      ...locales.map((x) => x.monthNamesShort),
+    ),
+    dayNamesLong: Object.assign({}, ...locales.map((x) => x.dayNamesLong)),
+    dayNamesShort: Object.assign({}, ...locales.map((x) => x.dayNamesShort)),
+  };
+};
+
+const combineKnownLocales = function combineKnownLocales(
+  ...targetLocales: SupportedLocales[]
+): Locale {
+  return combineLocales(
+    ...targetLocales.map((targetLocale) => locales[targetLocale]),
+  );
+};
+
+export {
+  combineKnownLocales,
+  combineLocales,
+  type Locale,
+  locales,
+  type SupportedLocales,
+};

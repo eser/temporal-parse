@@ -57,47 +57,55 @@ const dateFormats = [
   "EE, d MMMM yyyy",
 ];
 
-const monthNamesLong = [
-  "Ocak",
-  "Şubat",
-  "Mart",
-  "Nisan",
-  "Mayıs",
-  "Haziran",
-  "Temmuz",
-  "Ağustos",
-  "Eylül",
-  "Ekim",
-  "Kasım",
-  "Aralık",
-];
+const monthNamesLong = {
+  "Ocak": 1,
+  "Şubat": 2,
+  "Mart": 3,
+  "Nisan": 4,
+  "Mayıs": 5,
+  "Haziran": 6,
+  "Temmuz": 7,
+  "Ağustos": 8,
+  "Eylül": 9,
+  "Ekim": 10,
+  "Kasım": 11,
+  "Aralık": 12,
+};
 
-const monthNamesShort = [
-  "Oca",
-  "Şub",
-  "Mar",
-  "Nis",
-  "May",
-  "Haz",
-  "Tem",
-  "Ağu",
-  "Eyl",
-  "Eki",
-  "Kas",
-  "Ara",
-];
+const monthNamesShort = {
+  "Oca": 1,
+  "Şub": 2,
+  "Mar": 3,
+  "Nis": 4,
+  "May": 5,
+  "Haz": 6,
+  "Tem": 7,
+  "Ağu": 8,
+  "Eyl": 9,
+  "Eki": 10,
+  "Kas": 11,
+  "Ara": 12,
+};
 
-const dayNamesLong = [
-  "Pazar",
-  "Pazartesi",
-  "Salı",
-  "Çarşamba",
-  "Perşembe",
-  "Cuma",
-  "Cumartesi",
-];
+const dayNamesLong = {
+  "Pazar": 0,
+  "Pazartesi": 1,
+  "Salı": 2,
+  "Çarşamba": 3,
+  "Perşembe": 4,
+  "Cuma": 5,
+  "Cumartesi": 6,
+};
 
-const dayNamesShort = ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"];
+const dayNamesShort = {
+  "Paz": 0,
+  "Pzt": 1,
+  "Sal": 2,
+  "Çar": 3,
+  "Per": 4,
+  "Cum": 5,
+  "Cmt": 6,
+};
 
 export {
   dateFormats,

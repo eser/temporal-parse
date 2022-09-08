@@ -30,15 +30,15 @@ function template(formats, configFn) {
 }
 
 const bundles = [
-  { format: "cjs", entry: "index" },
-  { format: "esm", entry: "mod" },
+  { format: "cjs", entry: "index.bundle" },
+  { format: "esm", entry: "mod.bundle" },
 ];
 
 const config = template(bundles, (bundle) => [
   {
     input: [
       {
-        [bundle.entry]: "dist/mod.js",
+        [bundle.entry]: "dist/esm/mod.js",
       },
     ],
     // preserveModules: true,
