@@ -1,0 +1,60 @@
+{
+  "name": "vanilla-date-parser",
+  "description": "",
+  "keywords": [
+    "date",
+    "parser"
+  ],
+  "version": "0.0.1",
+  "homepage": "https://github.com/eserozvataf/vanilla-date-parser#readme",
+  "author": "Eser Ozvataf <eser@ozvataf.com>",
+  "contributors": [
+    {
+      "name": "Eser Ozvataf",
+      "email": "eser@ozvataf.com",
+      "url": "http://eser.ozvataf.com/"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eserozvataf/vanilla-date-parser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eserozvataf/vanilla-date-parser/issues"
+  },
+  "license": "Apache-2.0",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "module": "./dist/mod.js",
+  "types": "./src/mod.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/mod.js",
+      "types": "./src/mod.ts"
+    }
+  },
+  "files": [
+    "./dist/*",
+    "LICENSE",
+    "*.md"
+  ],
+  "scripts": {
+    "start": "npm run build",
+    "build": "npm run cleanup:pre && npm run build:deno && npm run build:rollup",
+    "build:deno": "mkdir -p ./dist/ && deno bundle ./src/mod.ts ./dist/mod.js",
+    "build:rollup": "rollup -c",
+    "test": "deno test",
+    "pub": "npm run build && npm publish",
+    "cleanup:pre": "rm -rf ./dist/ yarn.lock package-lock.json"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^14.0.0",
+    "esbuild": "^0.15.7",
+    "rollup": "^2.79.0",
+    "rollup-plugin-esbuild": "^4.10.1",
+    "rollup-plugin-multi-input": "^1.3.1",
+    "rollup-plugin-sourcemaps": "^0.6.3"
+  }
+}

@@ -1,5 +1,67 @@
 const isDayPlacedFirst = false;
 
+const dateFormats = [
+  "yyyy/M/d",
+  "M/d/yyyy",
+  "M/yyyy",
+  "yyyy/M",
+  // ----
+  "yyyy-M-d",
+  "M-d-yyyy",
+  "MMM-d-yyyy",
+  "MMMM-d-yyyy",
+  "M-yyyy",
+  "yyyy-M",
+  // ----
+  "yyyy.M.dd",
+  "M.d.yyyy",
+  "MMM.d.yyyy",
+  "MMMM.d.yyyy",
+  "M.yyyy",
+  "yyyy.M",
+  // ----
+  "yyyy M d",
+  "M d yyyy",
+  "MMM d yyyy",
+  "MMMM d yyyy",
+  "M yyyy",
+  "yyyy M",
+  // ----
+  "M, d, yyyy",
+  "MMM, d, yyyy",
+  "MMMM, d, yyyy",
+  // ----
+  "MMM d",
+  "MMMM d",
+  // ----
+  "d MMM",
+  "d MMMM",
+  // ----
+  "d-MMM",
+  "d-MMMM",
+  // ----
+  "MMM yyyy",
+  "MMMM yyyy",
+  // ----
+  "yyyy MMM d",
+  "yyyy MMMM d",
+  // ----
+  "M/d",
+  "MMM-d",
+  "MMMM, d",
+  "MMMM d, yyyy",
+  "MMMM, yyyy",
+  // ----
+  "qq yyyy",
+  "yyyy qq",
+  "EE, d MMMM yyyy",
+  // ----
+  "d MMM yyyy",
+  "d MMMM yyyy",
+  "d-MMM-yyyy",
+  "d-MMMM-yyyy",
+];
+
 const monthNamesLong = [
   "January",
   "February",
@@ -42,4 +104,11 @@ const dayNamesLong = [
 
 const dayNamesShort = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-export { isDayPlacedFirst, dayNamesLong, dayNamesShort, monthNamesLong, monthNamesShort };
+export {
+  dateFormats,
+  dayNamesLong,
+  dayNamesShort,
+  isDayPlacedFirst,
+  monthNamesLong,
+  monthNamesShort,
+};

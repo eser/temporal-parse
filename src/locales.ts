@@ -17,6 +17,7 @@ type SupportedLocales =
 
 interface Locale {
   isDayPlacedFirst: boolean;
+  dateFormats: string[];
   monthNamesLong: string[];
   monthNamesShort: string[];
   dayNamesLong: string[];

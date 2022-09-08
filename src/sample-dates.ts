@@ -1,24 +1,24 @@
 const dateSamples = [
   "01 2022",
-  "01 29 2022",
+  "29 01 2022",
   "01-2022",
-  "01-29-2022",
-  "01, 29, 2022",
+  "29-01-2022",
+  "29, 01, 2022",
   "01.2022",
-  "01.29.2022",
+  "29.01.2022",
   "01/02/2022",
   "01/2022",
-  "01/29/2022",
+  "29/01/2022",
   "05/08/1930",
   "08-05-1930",
-  "08-05-30", // ! unhandled
-  "08-05", // ! unhandled
-  "Oca 22", // ! next release
+  // "08-05-30", // ! unhandled
+  // "08-05", // ! unhandled
+  "Oca 22",
   "Oca 2022",
   "Şubat 2025",
   "1/1/2022",
   "1930-08-05",
-  "2019 July 1",
+  "2019 Ocak 1",
   "2022 01",
   "2022-01-11",
   "2022-01",
@@ -26,19 +26,19 @@ const dateSamples = [
   "2022/01",
   "2022/01/01",
   "29 01 2022",
-  "29 Ocak", // ! unhandled
-  "29 Oca", // ! unhandled
+  "29 Ocak",
+  "29 Oca",
   "29-01-2022",
   "29, 01, 2022",
   "29.01.2022",
-  "29/01/022",
+  // "29/01/022", // ! unhandled
   "5 Ağu 1930",
   "5 Ağustos 1930",
   "5-Eyl-1930",
-  "5-Aug", // ! unhandled
-  "8/5", // ! unhandled
-  "8/5/1930",
-  "8/5/30", // ! next release
+  "5-Ağu",
+  "5/8",
+  "5/8/1930",
+  // "5/8/30", // ! unhandled
   "Ağu-5",
   "Ağustos 2019",
   "Ağustos 5, 1930",
@@ -46,8 +46,60 @@ const dateSamples = [
   "Ocak 2022",
   "Ocak, 2022",
   "Temmuz 1, 2019",
-  "Q1 2021",
+  "Q2 2021",
   "Salı, 5 Ağustos 1930",
+];
+
+const dateSamplesUS = [
+  "01 2022",
+  "01 29 2022",
+  "01-2022",
+  "01-29-2022",
+  "01, 29, 2022",
+  "01.2022",
+  "01.29.2022",
+  "02/01/2022",
+  "01/2022",
+  "01/29/2022",
+  "08/05/1930",
+  "05-08-1930",
+  // "05-08-30", // ! unhandled
+  // "05-08", // ! unhandled
+  "Jan 22",
+  "Jan 2022",
+  "February 2025",
+  "1/1/2022",
+  "1930-08-05",
+  "2019 January 1",
+  "2022 01",
+  "2022-01-11",
+  "2022-01",
+  "2022.01",
+  "2022/01",
+  "2022/01/01",
+  "01 29 2022",
+  "29 January",
+  "29 Jan",
+  "01-29-2022",
+  "01, 29, 2022",
+  "01.29.2022",
+  // "01/29/022", // ! unhandled
+  "5 Aug 1930",
+  "5 August 1930",
+  "5-Sep-1930",
+  "5-Aug",
+  "8/5",
+  "8/5/1930",
+  // "8/5/30", // ! unhandled
+  "Aug-5",
+  "August 2019",
+  "August 5, 1930",
+  "August 5",
+  "January 2022",
+  "January, 2022",
+  "July 1, 2019",
+  "Q2 2021",
+  "Tuesday, 5 August 1930",
 ];
 
 const timeSamples = [
@@ -68,4 +120,17 @@ const dateTimeSamples = [
   "Tuesday, 5 August 1930, 13:25:59",
 ];
 
-export { dateSamples, dateTimeSamples, timeSamples };
+const dateTimeSamplesUS = [
+  ...dateSamplesUS,
+  ...timeSamples,
+  "Tuesday, 5 August 1930 at 13:25:59",
+  "Tuesday, 5 August 1930, 13:25:59",
+];
+
+export {
+  dateSamples,
+  dateSamplesUS,
+  dateTimeSamples,
+  dateTimeSamplesUS,
+  timeSamples,
+};
