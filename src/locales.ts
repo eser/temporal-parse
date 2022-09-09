@@ -1,3 +1,5 @@
+import * as genericEuropeAsia from "./locales/generic-europe-asia.ts";
+import * as genericAmerican from "./locales/generic-american.ts";
 import * as enUS from "./locales/en-US.ts";
 import * as enGB from "./locales/en-GB.ts";
 import * as deDE from "./locales/de-DE.ts";
@@ -7,6 +9,8 @@ import * as esES from "./locales/es-ES.ts";
 import * as trTR from "./locales/tr-TR.ts";
 
 type SupportedLocales =
+  | "generic-europe-asia"
+  | "generic-american"
   | "en-US"
   | "en-GB"
   | "de-DE"
@@ -25,6 +29,8 @@ interface Locale {
 }
 
 const locales: Record<SupportedLocales, Locale> = {
+  "generic-europe-asia": genericEuropeAsia,
+  "generic-american": genericAmerican,
   "en-US": enUS,
   "en-GB": enGB,
   "de-DE": deDE,

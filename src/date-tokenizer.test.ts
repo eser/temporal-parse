@@ -1,10 +1,10 @@
 import * as asserts from "https://deno.land/std@0.154.0/testing/asserts.ts";
-import { dateSamples, dateSamplesUS } from "./sample-dates.ts";
+import { dateSamplesEA, dateSamplesUS } from "./sample-dates.ts";
 import { DateTokenType, tokenizeDate } from "./date-tokenizer.ts";
 import { combineKnownLocales, parseDate, toDate } from "./mod.ts";
 
 Deno.test(function tokenizeDateTest() {
-  dateSamples.forEach((date) => {
+  dateSamplesEA.forEach((date) => {
     const tokenized = tokenizeDate(date);
 
     asserts.assert(tokenized.length > 0, `Date "${date}" is not valid`);
@@ -17,12 +17,12 @@ Deno.test(function tokenizeDateTest() {
 });
 
 Deno.test(function dateComparision() {
-  for (let i = 0; i < dateSamples.length; i++) {
-    const date = dateSamples[i];
-    const dateParsed = parseDate(date, "tr-TR");
+  for (let i = 0; i < dateSamplesEA.length; i++) {
+    const date = dateSamplesEA[i];
+    const dateParsed = parseDate(date, "generic-europe-asia");
 
     const dateUS = dateSamplesUS[i];
-    const dateUSParsed = parseDate(dateUS, "en-US");
+    const dateUSParsed = parseDate(dateUS, "generic-american");
 
     asserts.assertEquals(
       toDate(dateParsed!),
@@ -33,7 +33,10 @@ Deno.test(function dateComparision() {
 });
 
 Deno.test(function localeCombination() {
-  const combinedLocale = combineKnownLocales("tr-TR", "en-US");
+  const combinedLocale = combineKnownLocales(
+    "generic-europe-asia",
+    "generic-american",
+  );
 
   const date = "12 Ağustos 2022";
   const dateParsed = parseDate(date, combinedLocale);

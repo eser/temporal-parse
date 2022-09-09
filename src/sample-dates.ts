@@ -1,4 +1,4 @@
-const dateSamples = [
+const dateSamplesEA = [
   "01 2022",
   "29 01 2022",
   "01-2022",
@@ -102,7 +102,7 @@ const dateSamplesUS = [
   "Tuesday, 5 August 1930",
 ];
 
-const timeSamples = [
+const timeSamplesEA = [
   "1:25 PM",
   "12:00 AM",
   "1:25:59 PM",
@@ -113,24 +113,36 @@ const timeSamples = [
   "00:00",
 ];
 
-const dateTimeSamples = [
-  ...dateSamples,
-  ...timeSamples,
+const timeSamplesUS = [
+  "1:25 PM",
+  "12:00 AM",
+  "1:25:59 PM",
+  "1:25:59 AM",
+  "13:25:59",
+  "00:25:59",
+  "13:25",
+  "00:00",
+];
+
+const dateTimeSamplesEA = [
+  ...dateSamplesEA,
+  ...timeSamplesEA,
   "Tuesday, 5 August 1930 at 13:25:59",
   "Tuesday, 5 August 1930, 13:25:59",
 ];
 
 const dateTimeSamplesUS = [
   ...dateSamplesUS,
-  ...timeSamples,
+  ...timeSamplesUS,
   "Tuesday, 5 August 1930 at 13:25:59",
   "Tuesday, 5 August 1930, 13:25:59",
 ];
 
 export {
-  dateSamples,
+  dateSamplesEA,
   dateSamplesUS,
-  dateTimeSamples,
+  dateTimeSamplesEA,
   dateTimeSamplesUS,
-  timeSamples,
+  timeSamplesEA,
+  timeSamplesUS,
 };
