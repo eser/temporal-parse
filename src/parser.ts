@@ -62,32 +62,35 @@ const findLookupValueIfAny = function findLookupValueIfAny(
   locale: Locale,
 ): string | undefined {
   if (symbol.key === "month" && symbol.options.type === "alphanumeric") {
-    if (symbol.options.display === "full") {
-      const index = locale.monthNamesLong[dateToken[1]];
+    if (
+      symbol.options.display === "short" || symbol.options.display === "full"
+    ) {
+      const findResult = Object.entries(
+        locale.monthNames[symbol.options.display],
+      ).find((
+        [, value],
+      ) => value.includes(dateToken[1]));
 
-      return String(index);
-    }
-
-    if (symbol.options.display === "short") {
-      const index = locale.monthNamesShort[dateToken[1]];
-
-      return String(index);
+      return findResult?.[0];
     }
 
     return undefined;
   }
 
   if (symbol.key === "weekday" && symbol.options.type === "alphanumeric") {
-    if (symbol.options.display === "full") {
-      const index = locale.dayNamesLong[dateToken[1]];
+    if (
+      symbol.options.display === "short" || symbol.options.display === "full"
+    ) {
+      const findResult = Object.entries(locale.dayNames[symbol.options.display])
+        .find((
+          [, value],
+        ) => value.includes(dateToken[1]));
 
-      return String(index + 1);
-    }
+      if (findResult === undefined) {
+        return undefined;
+      }
 
-    if (symbol.options.display === "short") {
-      const index = locale.dayNamesShort[dateToken[1]];
-
-      return String(index + 1);
+      return String(Number(findResult[0]) + 1);
     }
 
     return undefined;
@@ -164,7 +167,7 @@ const parseDate = function parseDate(
     ? locales[targetLocale]
     : <Locale> targetLocale;
 
-  for (const dateFormat of locale.dateFormats) {
+  for (const [, dateFormat] of Object.entries(locale.dateFormats)) {
     const date = tryParseDateWithFormat(tokens, dateFormat, locale);
 
     if (date !== undefined) {

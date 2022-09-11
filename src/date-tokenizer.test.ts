@@ -18,35 +18,36 @@ Deno.test(function tokenizeDateTest() {
 
 Deno.test(function dateComparision() {
   for (let i = 0; i < dateSamplesEA.length; i++) {
-    const date = dateSamplesEA[i];
-    const dateParsed = parseDate(date, "generic-europe-asia");
+    const dateEA = dateSamplesEA[i];
+    const dateEAParsed = parseDate(dateEA, "generic-europe-asia");
 
     const dateUS = dateSamplesUS[i];
     const dateUSParsed = parseDate(dateUS, "generic-american");
 
     asserts.assertEquals(
-      toDate(dateParsed!),
+      toDate(dateEAParsed!),
       toDate(dateUSParsed!),
-      // `date: ${date}, dateUS: ${dateUS}`,
+      // `dateEA: ${dateEA}, dateUS: ${dateUS}`,
     );
   }
 });
 
 Deno.test(function localeCombination() {
   const combinedLocale = combineKnownLocales(
-    "generic-europe-asia",
-    "generic-american",
+    "en-GB+tr-TR",
+    "en-GB",
+    "tr-TR",
   );
 
-  const date = "12 Ağustos 2022";
-  const dateParsed = parseDate(date, combinedLocale);
+  const dateTR = "12 Ağustos 2022";
+  const dateTRParsed = parseDate(dateTR, combinedLocale);
 
-  const dateUS = "12 August 2022";
-  const dateUSParsed = parseDate(dateUS, combinedLocale);
+  const dateGB = "12 August 2022";
+  const dateGBParsed = parseDate(dateGB, combinedLocale);
 
   asserts.assertEquals(
-    toDate(dateParsed!),
-    toDate(dateUSParsed!),
-    // `date: ${date}, dateUS: ${dateUS}`,
+    toDate(dateTRParsed!),
+    toDate(dateGBParsed!),
+    // `dateTR: ${dateTR}, dateGB: ${dateGB}`,
   );
 });

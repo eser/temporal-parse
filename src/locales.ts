@@ -1,12 +1,14 @@
-import * as genericEuropeAsia from "./locales/generic-europe-asia.ts";
-import * as genericAmerican from "./locales/generic-american.ts";
-import * as enUS from "./locales/en-US.ts";
-import * as enGB from "./locales/en-GB.ts";
-import * as deDE from "./locales/de-DE.ts";
-import * as frFR from "./locales/fr-FR.ts";
-import * as itIT from "./locales/it-IT.ts";
-import * as esES from "./locales/es-ES.ts";
-import * as trTR from "./locales/tr-TR.ts";
+import { type Locale } from "./locales/types.ts";
+import { combineLocales } from "./locales/combiners.ts";
+import { locale as genericEuropeAsia } from "./locales/generic-europe-asia.ts";
+import { locale as genericAmerican } from "./locales/generic-american.ts";
+import { locale as enUS } from "./locales/en-US.ts";
+import { locale as enGB } from "./locales/en-GB.ts";
+import { locale as deDE } from "./locales/de-DE.ts";
+import { locale as frFR } from "./locales/fr-FR.ts";
+import { locale as itIT } from "./locales/it-IT.ts";
+import { locale as esES } from "./locales/es-ES.ts";
+import { locale as trTR } from "./locales/tr-TR.ts";
 
 type SupportedLocales =
   | "generic-europe-asia"
@@ -18,15 +20,6 @@ type SupportedLocales =
   | "it-IT"
   | "es-ES"
   | "tr-TR";
-
-interface Locale {
-  isDayPlacedFirst: boolean;
-  dateFormats: string[];
-  monthNamesLong: Record<string, number>;
-  monthNamesShort: Record<string, number>;
-  dayNamesLong: Record<string, number>;
-  dayNamesShort: Record<string, number>;
-}
 
 const locales: Record<SupportedLocales, Locale> = {
   "generic-europe-asia": genericEuropeAsia,
@@ -40,24 +33,12 @@ const locales: Record<SupportedLocales, Locale> = {
   "tr-TR": trTR,
 };
 
-const combineLocales = function combineLocales(...locales: Locale[]): Locale {
-  return {
-    isDayPlacedFirst: locales.at(0)?.isDayPlacedFirst ?? true,
-    dateFormats: [...new Set(locales.flatMap((x) => x.dateFormats))],
-    monthNamesLong: Object.assign({}, ...locales.map((x) => x.monthNamesLong)),
-    monthNamesShort: Object.assign(
-      {},
-      ...locales.map((x) => x.monthNamesShort),
-    ),
-    dayNamesLong: Object.assign({}, ...locales.map((x) => x.dayNamesLong)),
-    dayNamesShort: Object.assign({}, ...locales.map((x) => x.dayNamesShort)),
-  };
-};
-
 const combineKnownLocales = function combineKnownLocales(
+  code: string,
   ...targetLocales: SupportedLocales[]
 ): Locale {
   return combineLocales(
+    code,
     ...targetLocales.map((targetLocale) => locales[targetLocale]),
   );
 };

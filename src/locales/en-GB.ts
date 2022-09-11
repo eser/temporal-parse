@@ -1,117 +1,78 @@
-const isDayPlacedFirst = true;
+import { type Locale } from "./types.ts";
 
-const dateFormats = [
-  "yyyy/M/d",
-  "d/M/yyyy",
-  "M/yyyy",
-  "yyyy/M",
-  // ----
-  "yyyy-M-d",
-  "d-M-yyyy",
-  "d-MMM-yyyy",
-  "d-MMMM-yyyy",
-  "M-yyyy",
-  "yyyy-M",
-  // ----
-  "yyyy.M.dd",
-  "d.M.yyyy",
-  "d.MMM.yyyy",
-  "d.MMMM.yyyy",
-  "M.yyyy",
-  "yyyy.M",
-  // ----
-  "yyyy M d",
-  "d M yyyy",
-  "d MMM yyyy",
-  "d MMMM yyyy",
-  "M yyyy",
-  "yyyy M",
-  // ----
-  "d, M, yyyy",
-  "d, MMM, yyyy",
-  "d, MMMM, yyyy",
-  // ----
-  "MMM d",
-  "MMMM d",
-  // ----
-  "d MMM",
-  "d MMMM",
-  // ----
-  "d-MMM",
-  "d-MMMM",
-  // ----
-  "MMM yyyy",
-  "MMMM yyyy",
-  // ----
-  "yyyy MMM d",
-  "yyyy MMMM d",
-  // ----
-  "d/M",
-  "MMM-d",
-  "MMMM, d",
-  "MMMM d, yyyy",
-  "MMMM, yyyy",
-  // ----
-  "qq yyyy",
-  "yyyy qq",
-  "EE, d MMMM yyyy",
-];
+const locale: Locale = {
+  code: "en-GB",
+  isDayPlacedFirst: true,
 
-const monthNamesLong = {
-  "January": 1,
-  "February": 2,
-  "March": 3,
-  "April": 4,
-  "May": 5,
-  "June": 6,
-  "July": 7,
-  "August": 8,
-  "September": 9,
-  "October": 10,
-  "November": 11,
-  "December": 12,
+  dateFormats: {
+    full: "EEEE, d MMMM yyyy",
+    wide: "d MMMM yyyy",
+    long: "d MMM yyyy",
+    short: "dd/MM/yyyy",
+  },
+  timeFormats: {
+    full: "HH:mm:ss zzzz",
+    wide: "HH:mm:ss a z",
+    long: "HH:mm:ss",
+    short: "HH:mm",
+  },
+  dateTimeFormats: {
+    full: "{{date}} 'at' {{time}}",
+    wide: "{{date}} 'at' {{time}}",
+    long: "{{date}}, {{time}}",
+    short: "{{date}}, {{time}}",
+  },
+
+  monthNames: {
+    full: {
+      1: ["January"],
+      2: ["February"],
+      3: ["March"],
+      4: ["April"],
+      5: ["May"],
+      6: ["June"],
+      7: ["July"],
+      8: ["August"],
+      9: ["September"],
+      10: ["October"],
+      11: ["November"],
+      12: ["December"],
+    },
+    short: {
+      1: ["Jan"],
+      2: ["Feb"],
+      3: ["Mar"],
+      4: ["Apr"],
+      5: ["May"],
+      6: ["Jun"],
+      7: ["Jul"],
+      8: ["Aug"],
+      9: ["Sep"],
+      10: ["Oct"],
+      11: ["Nov"],
+      12: ["Dec"],
+    },
+  },
+  dayNames: {
+    full: {
+      0: ["Sunday"],
+      1: ["Monday"],
+      2: ["Tuesday"],
+      3: ["Wednesday"],
+      4: ["Thursday"],
+      5: ["Friday"],
+      6: ["Saturday"],
+    },
+    short: {
+      0: ["Sun"],
+      1: ["Mon"],
+      2: ["Tue"],
+      3: ["Wed"],
+      4: ["Thu"],
+      5: ["Fri"],
+      6: ["Sat"],
+    },
+  },
 };
 
-const monthNamesShort = {
-  "Jan": 1,
-  "Feb": 2,
-  "Mar": 3,
-  "Apr": 4,
-  "May": 5,
-  "Jun": 6,
-  "Jul": 7,
-  "Aug": 8,
-  "Sep": 9,
-  "Oct": 10,
-  "Nov": 11,
-  "Dec": 12,
-};
-
-const dayNamesLong = {
-  "Sunday": 0,
-  "Monday": 1,
-  "Tuesday": 2,
-  "Wednesday": 3,
-  "Thursday": 4,
-  "Friday": 5,
-  "Saturday": 6,
-};
-
-const dayNamesShort = {
-  "Sun": 0,
-  "Mon": 1,
-  "Tue": 2,
-  "Wed": 3,
-  "Thu": 4,
-  "Fri": 5,
-  "Sat": 6,
-};
-
-export {
-  dateFormats,
-  dayNamesLong,
-  dayNamesShort,
-  isDayPlacedFirst,
-  monthNamesLong,
-  monthNamesShort,
-};
+export { locale };

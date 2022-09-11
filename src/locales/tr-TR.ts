@@ -1,117 +1,78 @@
-const isDayPlacedFirst = true;
+import { type Locale } from "./types.ts";
 
-const dateFormats = [
-  "yyyy/M/d",
-  "d/M/yyyy",
-  "M/yyyy",
-  "yyyy/M",
-  // ----
-  "yyyy-M-d",
-  "d-M-yyyy",
-  "d-MMM-yyyy",
-  "d-MMMM-yyyy",
-  "M-yyyy",
-  "yyyy-M",
-  // ----
-  "yyyy.M.dd",
-  "d.M.yyyy",
-  "d.MMM.yyyy",
-  "d.MMMM.yyyy",
-  "M.yyyy",
-  "yyyy.M",
-  // ----
-  "yyyy M d",
-  "d M yyyy",
-  "d MMM yyyy",
-  "d MMMM yyyy",
-  "M yyyy",
-  "yyyy M",
-  // ----
-  "d, M, yyyy",
-  "d, MMM, yyyy",
-  "d, MMMM, yyyy",
-  // ----
-  "MMM d",
-  "MMMM d",
-  // ----
-  "d MMM",
-  "d MMMM",
-  // ----
-  "d-MMM",
-  "d-MMMM",
-  // ----
-  "MMM yyyy",
-  "MMMM yyyy",
-  // ----
-  "yyyy MMM d",
-  "yyyy MMMM d",
-  // ----
-  "d/M",
-  "MMM-d",
-  "MMMM, d",
-  "MMMM d, yyyy",
-  "MMMM, yyyy",
-  // ----
-  "qq yyyy",
-  "yyyy qq",
-  "EE, d MMMM yyyy",
-];
+const locale: Locale = {
+  code: "tr-TR",
+  isDayPlacedFirst: true,
 
-const monthNamesLong = {
-  "Ocak": 1,
-  "Şubat": 2,
-  "Mart": 3,
-  "Nisan": 4,
-  "Mayıs": 5,
-  "Haziran": 6,
-  "Temmuz": 7,
-  "Ağustos": 8,
-  "Eylül": 9,
-  "Ekim": 10,
-  "Kasım": 11,
-  "Aralık": 12,
+  dateFormats: {
+    full: "d MMMM y EEEE",
+    wide: "d MMMM y",
+    long: "d MMM y",
+    short: "dd.MM.yyyy",
+  },
+  timeFormats: {
+    full: "HH:mm:ss zzzz",
+    wide: "HH:mm:ss z",
+    long: "HH:mm:ss",
+    short: "HH:mm",
+  },
+  dateTimeFormats: {
+    full: "{{date}} 'saat' {{time}}",
+    wide: "{{date}} 'saat' {{time}}",
+    long: "{{date}}, {{time}}",
+    short: "{{date}}, {{time}}",
+  },
+
+  monthNames: {
+    full: {
+      1: ["Ocak"],
+      2: ["Şubat"],
+      3: ["Mart"],
+      4: ["Nisan"],
+      5: ["Mayıs"],
+      6: ["Haziran"],
+      7: ["Temmuz"],
+      8: ["Ağustos"],
+      9: ["Eylül"],
+      10: ["Ekim"],
+      11: ["Kasım"],
+      12: ["Aralık"],
+    },
+    short: {
+      1: ["Oca"],
+      2: ["Şub"],
+      3: ["Mar"],
+      4: ["Nis"],
+      5: ["May"],
+      6: ["Haz"],
+      7: ["Tem"],
+      8: ["Ağu"],
+      9: ["Eyl"],
+      10: ["Eki"],
+      11: ["Kas"],
+      12: ["Ara"],
+    },
+  },
+  dayNames: {
+    full: {
+      0: ["Pazar"],
+      1: ["Pazartesi"],
+      2: ["Salı"],
+      3: ["Çarşamba"],
+      4: ["Perşembe"],
+      5: ["Cuma"],
+      6: ["Cumartesi"],
+    },
+    short: {
+      0: ["Paz"],
+      1: ["Pzt"],
+      2: ["Sal"],
+      3: ["Çar"],
+      4: ["Per"],
+      5: ["Cum"],
+      6: ["Cmt"],
+    },
+  },
 };
 
-const monthNamesShort = {
-  "Oca": 1,
-  "Şub": 2,
-  "Mar": 3,
-  "Nis": 4,
-  "May": 5,
-  "Haz": 6,
-  "Tem": 7,
-  "Ağu": 8,
-  "Eyl": 9,
-  "Eki": 10,
-  "Kas": 11,
-  "Ara": 12,
-};
-
-const dayNamesLong = {
-  "Pazar": 0,
-  "Pazartesi": 1,
-  "Salı": 2,
-  "Çarşamba": 3,
-  "Perşembe": 4,
-  "Cuma": 5,
-  "Cumartesi": 6,
-};
-
-const dayNamesShort = {
-  "Paz": 0,
-  "Pzt": 1,
-  "Sal": 2,
-  "Çar": 3,
-  "Per": 4,
-  "Cum": 5,
-  "Cmt": 6,
-};
-
-export {
-  dateFormats,
-  dayNamesLong,
-  dayNamesShort,
-  isDayPlacedFirst,
-  monthNamesLong,
-  monthNamesShort,
-};
+export { locale };

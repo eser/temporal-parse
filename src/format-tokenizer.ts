@@ -3,7 +3,14 @@ interface FormatSymbol {
   name: string;
   options: {
     type: "numeric" | "alphanumeric";
-    display: "numeric" | "2-digit" | "narrow" | "short" | "full";
+    display:
+      | "numeric"
+      | "2-digit"
+      | "narrow"
+      | "short"
+      | "long"
+      | "wide"
+      | "full";
     hour12?: boolean;
     minLength: number;
     maxLength: number | null;
@@ -135,6 +142,18 @@ const symbols: Record<string, FormatSymbol> = {
   // "w": "week of year", // ! not supported
   // "W": "week of month", // ! not supported
   "dd": {
+    key: "day",
+    name: "day of month",
+    options: {
+      type: "numeric",
+      display: "2-digit",
+      minLength: 2,
+      maxLength: 2,
+      minValue: 1,
+      maxValue: 31,
+    },
+  },
+  "do": { // 1st, 2nd, 3rd, 4th, etc.
     key: "day",
     name: "day of month",
     options: {
