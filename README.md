@@ -17,13 +17,18 @@ This project aims to parse human-readable strings for Temporal, and generate pro
 ## Sample Usage
 
 ```js
-import { Temporal } from "npm:@js-temporal/polyfill";
-import { parseDate } from "npm:temporal-parse";
+// import { Temporal } from "npm:@js-temporal/polyfill"; // use it if Temporal is not defined
+import { parseDate, toDate, toTemporal } from "npm:temporal-parse";
 
 const parsedDate = parseDate("07/12/1995", "en-GB"); // { year: 1995, month: 12, day: 7 }
-const dateTime = Temporal.PlainDateTime.from(parsedDate);
 
-console.log(dateTime.toString()); // => 1995-12-07T00:00:00
+// new temporal Date API
+const temporal = toTemporal(parsedDate);
+console.log(temporal.toString()); // => 1995-12-07
+
+// old Date API
+const date = toDate(parsedDate);
+console.log(date.toString()); // => 1995-12-07T00:00:00
 ```
 
 

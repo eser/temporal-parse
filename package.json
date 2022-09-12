@@ -6,9 +6,12 @@
     "datetime",
     "parse",
     "parser",
-    "temporal"
+    "temporal",
+    "library",
+    "api",
+    "human-readable"
   ],
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/eserozvataf/temporal-parse#readme",
   "author": "Eser Ozvataf <eser@ozvataf.com>",
   "contributors": [
