@@ -1,12 +1,15 @@
 {
-  "name": "vanilla-date-parser",
+  "name": "temporal-parse",
   "description": "",
   "keywords": [
     "date",
-    "parser"
+    "datetime",
+    "parse",
+    "parser",
+    "temporal"
   ],
   "version": "0.0.5",
-  "homepage": "https://github.com/eserozvataf/vanilla-date-parser#readme",
+  "homepage": "https://github.com/eserozvataf/temporal-parse#readme",
   "author": "Eser Ozvataf <eser@ozvataf.com>",
   "contributors": [
     {
@@ -17,10 +20,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eserozvataf/vanilla-date-parser.git"
+    "url": "git+https://github.com/eserozvataf/temporal-parse.git"
   },
   "bugs": {
-    "url": "https://github.com/eserozvataf/vanilla-date-parser/issues"
+    "url": "https://github.com/eserozvataf/temporal-parse/issues"
   },
   "license": "Apache-2.0"
 }

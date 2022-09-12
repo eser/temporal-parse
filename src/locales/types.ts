@@ -7,6 +7,7 @@ type WeekdayNames = { [key in Weekdays]: string[] };
 interface Locale {
   code: string;
   isDayPlacedFirst: boolean;
+
   dateFormats: {
     full?: string;
     wide?: string;
@@ -28,6 +29,7 @@ interface Locale {
     short?: string;
     [key: number]: string;
   };
+
   monthNames: {
     full: MonthNames;
     short: MonthNames;
