@@ -421,7 +421,7 @@ const tokenizeFormat = function tokenizeFormat(input: string): FormatToken[] {
     // console.log(currentToken, tokens.at(-1));
     if (
       tokenType === FormatTokenType.literal &&
-      tokens.at(-1)?.[0] === FormatTokenType.literal
+      tokens.slice(-1)?.[0]?.[0] === FormatTokenType.literal
     ) {
       tokens[tokens.length - 1][1] += currentToken[1];
 
@@ -436,7 +436,7 @@ const tokenizeFormat = function tokenizeFormat(input: string): FormatToken[] {
   for (let i = 0; i < input.length; i++) {
     const char = input[i];
 
-    if (inQuote === undefined && currentToken[1].at(-1) !== char) {
+    if (inQuote === undefined && currentToken[1].slice(-1) !== char) {
       if (currentToken[1].length > 0) {
         pushToken();
       }
@@ -485,9 +485,9 @@ const formatTokenizerToRegExp = function formatTokenizerToRegExp(
     }
 
     let nextChar = "$";
-    const peek = arr.at(idx + 1);
+    const peek = arr[idx + 1];
     if (peek !== undefined && peek[0] === FormatTokenType.literal) {
-      nextChar = escapeRegExp(peek[1].at(0)!);
+      nextChar = escapeRegExp(peek[1][0]!);
     }
 
     const symbol = symbols[curr[1]];

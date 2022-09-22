@@ -16,6 +16,12 @@ Deno.test(function tokenizeDateTest() {
   });
 });
 
+Deno.test(function falseValues() {
+  const parsedDate = parseDate("not a date", "generic-europe-asia");
+
+  asserts.assertEquals(parsedDate, undefined);
+});
+
 Deno.test(function dateComparision() {
   for (let i = 0; i < dateSamplesEA.length; i++) {
     const dateEA = dateSamplesEA[i];
@@ -24,11 +30,11 @@ Deno.test(function dateComparision() {
     const dateUS = dateSamplesUS[i];
     const dateUSParsed = parseDate(dateUS, "generic-american");
 
-    console.log(
-      `dateEA: ${dateEA}, dateUS: ${dateUS}`,
-      dateEAParsed,
-      dateUSParsed,
-    );
+    // console.log(
+    //   `dateEA: ${dateEA}, dateUS: ${dateUS}`,
+    //   dateEAParsed,
+    //   dateUSParsed,
+    // );
     asserts.assertEquals(
       toDate(dateEAParsed!),
       toDate(dateUSParsed!),
