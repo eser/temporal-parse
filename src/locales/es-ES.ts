@@ -2,7 +2,9 @@ import { type Locale } from "./types.ts";
 
 const locale: Locale = {
   code: "es-ES",
+
   isDayPlacedFirst: true,
+  dateDelimiters: ["/", ".", "-"],
 
   dateFormats: {
     full: "EEEE, d 'de' MMMM 'de' y",

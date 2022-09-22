@@ -1,3 +1,12 @@
+# OS-specific files
+.DS_Store
+
+# Editor-specific files
+# .vscode/
+
+# NPM packages
 node_modules/
+
+# Build output
 dist/
 tsconfig.tsbuildinfo

@@ -4,12 +4,25 @@ import packageJson from "./package.json" assert { type: "json" };
 await emptyDir("./dist");
 
 await build({
-  entryPoints: ["./src/mod.ts"],
+  entryPoints: [
+    "./src/mod.ts",
+    {
+      name: "./polyfill",
+      path: "./src/polyfill.ts",
+    },
+  ],
   outDir: "./dist",
   package: packageJson,
   shims: {
     // see JS docs for overview and more options
     deno: false,
+  },
+  mappings: {
+    "https://cdn.skypack.dev/@js-temporal/polyfill": {
+      name: "@js-temporal/polyfill",
+      version: "0.4.2",
+      peerDependency: false,
+    },
   },
   typeCheck: true,
   test: false,

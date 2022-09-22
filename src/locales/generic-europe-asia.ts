@@ -11,7 +11,9 @@ let i = 0;
 
 const locale: Locale = {
   code: "generic-europe-asia",
+
   isDayPlacedFirst: true,
+  dateDelimiters: ["/", ".", "-"],
 
   dateFormats: {
     full: "EEEE, d MMMM yyyy",
@@ -73,6 +75,35 @@ const locale: Locale = {
     [++i]: "qq yyyy",
     [++i]: "yyyy qq",
     [++i]: "EE, d MMMM yyyy",
+    // ---- extended: will be removed in the future
+    [++i]: "dd/MMMM/yyyy",
+    [++i]: "dd/MMM/yyyy",
+    [++i]: "d/MMMM/yyyy",
+    [++i]: "d/MMM/yyyy",
+    [++i]: "MMMM dd yyyy",
+    [++i]: "MMMM d yyyy",
+    [++i]: "MMMM/dd/yyyy",
+    [++i]: "MMMM/d/yyyy",
+    [++i]: "MMMM.dd.yyyy",
+    [++i]: "MMMM.d.yyyy",
+    [++i]: "MMMM-dd-yyyy",
+    [++i]: "MMMM-d-yyyy",
+    [++i]: "MMMM.yyyy",
+    [++i]: "MMMM-yyyy",
+    [++i]: "MMM/yyyy",
+    [++i]: "MMM.yyyy",
+    [++i]: "MMM-yyyy",
+    [++i]: "MMM/yy",
+    [++i]: "MMM.yy",
+    [++i]: "yyyy MMM",
+    [++i]: "yyyy/MMM",
+    [++i]: "yyyy.MMM",
+    [++i]: "yyyy-MMM",
+    [++i]: "dd/MMM",
+    [++i]: "dd.MMM",
+    [++i]: "qq/yyyy",
+    [++i]: "qq.yyyy",
+    [++i]: "qq-yyyy",
   },
   timeFormats: {
     full: "HH:mm:ss zzzz",

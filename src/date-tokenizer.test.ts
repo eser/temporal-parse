@@ -24,6 +24,11 @@ Deno.test(function dateComparision() {
     const dateUS = dateSamplesUS[i];
     const dateUSParsed = parseDate(dateUS, "generic-american");
 
+    console.log(
+      `dateEA: ${dateEA}, dateUS: ${dateUS}`,
+      dateEAParsed,
+      dateUSParsed,
+    );
     asserts.assertEquals(
       toDate(dateEAParsed!),
       toDate(dateUSParsed!),

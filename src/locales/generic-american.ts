@@ -11,7 +11,9 @@ let i = 0;
 
 const locale: Locale = {
   code: "generic-american",
+
   isDayPlacedFirst: false,
+  dateDelimiters: ["/", ".", "-"],
 
   dateFormats: {
     ...enUS.dateFormats,
@@ -74,6 +76,37 @@ const locale: Locale = {
     [++i]: "d MMMM yyyy",
     [++i]: "d-MMM-yyyy",
     [++i]: "d-MMMM-yyyy",
+    // ---- extended: will be removed in the future
+    [++i]: "dd/MMMM/yyyy",
+    [++i]: "dd/MMM/yyyy",
+    [++i]: "d/MMMM/yyyy",
+    [++i]: "d/MMM/yyyy",
+    [++i]: "MMMM dd yyyy",
+    [++i]: "MMMM d yyyy",
+    [++i]: "MMMM/dd/yyyy",
+    [++i]: "MMMM/d/yyyy",
+    [++i]: "MMMM.dd.yyyy",
+    [++i]: "MMMM.d.yyyy",
+    [++i]: "MMMM-dd-yyyy",
+    [++i]: "MMMM-d-yyyy",
+    [++i]: "MMMM.yyyy",
+    [++i]: "MMMM-yyyy",
+    [++i]: "MMM/yyyy",
+    [++i]: "MMM.yyyy",
+    [++i]: "MMM-yyyy",
+    [++i]: "MMM/yy",
+    [++i]: "MMM.yy",
+    [++i]: "yyyy MMM",
+    [++i]: "yyyy/MMM",
+    [++i]: "yyyy.MMM",
+    [++i]: "yyyy-MMM",
+    [++i]: "dd/MMM",
+    [++i]: "dd.MMM",
+    [++i]: "qq/yyyy",
+    [++i]: "qq.yyyy",
+    [++i]: "qq-yyyy",
+
+    [++i]: "d.MMMM.yyyy",
   },
   timeFormats: enUS.timeFormats,
   dateTimeFormats: enUS.dateTimeFormats,

@@ -12,17 +12,17 @@ const toDate = function toDate(input: DateFormat): Date {
 
   if (input.quarter !== undefined) {
     day = 1;
-    switch (input.quarter.toUpperCase()) {
-      case "Q1":
+    switch (input.quarter) {
+      case "1":
         month = 0;
         break;
-      case "Q2":
+      case "2":
         month = 3;
         break;
-      case "Q3":
+      case "3":
         month = 6;
         break;
-      case "Q4":
+      case "4":
         month = 9;
         break;
     }

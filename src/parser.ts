@@ -98,7 +98,7 @@ const findLookupValueIfAny = function findLookupValueIfAny(
   }
 
   if (symbol.key === "quarter" && symbol.options.type === "alphanumeric") {
-    return quarters.find((name) => name === dateToken[1]);
+    return String(quarters.findIndex((name) => name === dateToken[1]));
   }
 
   return undefined;

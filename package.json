@@ -11,7 +11,7 @@
     "api",
     "human-readable"
   ],
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "https://github.com/eserozvataf/temporal-parse#readme",
   "author": "Eser Ozvataf <eser@ozvataf.com>",
   "contributors": [
@@ -28,5 +28,11 @@
   "bugs": {
     "url": "https://github.com/eserozvataf/temporal-parse/issues"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "exports": {
+    "./package.json": {
+      "import": "./esm/package.json",
+      "require": "./script/package.json"
+    }
+  }
 }

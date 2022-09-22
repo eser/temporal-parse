@@ -67,6 +67,7 @@ const combineLocales = function combineLocales(
   return {
     code: code,
     isDayPlacedFirst: locales[0]!.isDayPlacedFirst,
+    dateDelimiters: locales[0]!.dateDelimiters,
     dateFormats: combineFormats(...locales.map((locale) => locale.dateFormats)),
     timeFormats: combineFormats(...locales.map((locale) => locale.timeFormats)),
     dateTimeFormats: combineFormats(
