@@ -1,6 +1,6 @@
 {
   "name": "temporal-parse",
-  "description": "",
+  "description": "parses human-readable strings for JavaScript's Temporal API",
   "keywords": [
     "date",
     "datetime",

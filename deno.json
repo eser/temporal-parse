@@ -1,4 +1,5 @@
 {
+  "importMap": "./import_map.json",
   "lint": {
     "files": {
       "include": [
@@ -46,9 +47,12 @@
     }
   },
   "tasks": {
-    "build": "deno task build:deno",
-    "build:deno": "deno run -A packager.ts",
-    "pub": "deno task build && npm publish dist/",
-    "cleanup": "rm -rf ./dist/ yarn.lock package-lock.json"
+    "test": "deno test ./src/ --allow-net --coverage=./etc/coverage",
+    "test:coverage": "deno coverage ./etc/coverage",
+    "test:generate-lcov": "deno coverage ./etc/coverage --lcov > ./etc/coverage/cov_profile.lcov",
+    "bench": "deno bench ./src/ --unstable",
+    "cleanup": "rm -rf ./dist/ yarn.lock package-lock.json",
+    "build": "deno run -A packager.ts",
+    "pub": "deno task build && npm publish dist/"
   }
 }
